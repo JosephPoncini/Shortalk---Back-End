@@ -1,0 +1,33 @@
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\appsettings.Development.json
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\appsettings.json
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Shortalk - Back End.exe
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Shortalk - Back End.deps.json
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Shortalk - Back End.runtimeconfig.json
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Shortalk - Back End.dll
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Shortalk - Back End.pdb
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Microsoft.OpenApi.dll
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\obj\Debug\net7.0\Shortalk - Back End.csproj.AssemblyReference.cache
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\obj\Debug\net7.0\Shortalk - Back End.GeneratedMSBuildEditorConfig.editorconfig
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\obj\Debug\net7.0\Shortalk - Back End.AssemblyInfoInputs.cache
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\obj\Debug\net7.0\Shortalk - Back End.AssemblyInfo.cs
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\obj\Debug\net7.0\Shortalk - Back End.csproj.CoreCompileInputs.cache
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\obj\Debug\net7.0\Shortalk - Back End.MvcApplicationPartsAssemblyInfo.cs
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\obj\Debug\net7.0\Shortalk - Back End.MvcApplicationPartsAssemblyInfo.cache
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\obj\Debug\net7.0\staticwebassets\msbuild.Shortalk - Back End.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\obj\Debug\net7.0\staticwebassets\msbuild.build.Shortalk - Back End.props
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.Shortalk - Back End.props
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.Shortalk - Back End.props
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\obj\Debug\net7.0\staticwebassets.pack.json
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\obj\Debug\net7.0\staticwebassets.build.json
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\obj\Debug\net7.0\staticwebassets.development.json
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\obj\Debug\net7.0\scopedcss\bundle\Shortalk - Back End.styles.css
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\obj\Debug\net7.0\Shortalk - Back End.csproj.CopyComplete
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\obj\Debug\net7.0\Shortalk - Back End.dll
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\obj\Debug\net7.0\refint\Shortalk - Back End.dll
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\obj\Debug\net7.0\Shortalk - Back End.pdb
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\obj\Debug\net7.0\Shortalk - Back End.genruntimeconfig.cache
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\obj\Debug\net7.0\ref\Shortalk - Back End.dll
