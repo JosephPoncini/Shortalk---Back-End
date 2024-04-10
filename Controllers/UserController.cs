@@ -63,11 +63,11 @@ public class UserController : ControllerBase
         }
 
 
-        // [HttpGet]
-        // [Route("GetUserByUsername/{username}")]
-        // public UserIdDTO GetUserByUsername(string username){
-        //     return _data.GetUserIdDTOByUsername(username);
-        // }
+        [HttpGet]
+        [Route("GetUserByUsername/{username}")]
+        public UserIdDTO GetUserByUsername(string username){
+            return _data.GetUserIdDTOByUsername(username);
+        }
 
     }
 }
