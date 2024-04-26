@@ -2,8 +2,11 @@ using Shortalk___Back_End.Services;
 using Shortalk___Back_End.Services.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using Shortalk___Back_End.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddSignalR();
 
 // Add services to the container.
 builder.Services.AddScoped<LobbyService>();
@@ -33,6 +36,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddSingleton<SharedDb>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -48,5 +53,7 @@ app.UseCors("ShortalkPolicy");
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapHub<LobbyHub>("/LobbyRoom");
 
 app.Run();
