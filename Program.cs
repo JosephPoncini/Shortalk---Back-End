@@ -25,7 +25,8 @@ builder.Services.AddCors(options => options.AddPolicy("ShortalkPolicy",
 builder => {
     builder.WithOrigins("http://localhost:5151","http://localhost:3000","https://shortalk-front-end.vercel.app")
     .AllowAnyHeader()
-    .AllowAnyMethod();
+    .AllowAnyMethod()
+    .AllowCredentials();
 }
 ));
 
@@ -54,6 +55,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapHub<LobbyHub>("/LobbyRoom");
+app.MapHub<LobbyHub>("/Lobby");
 
 app.Run();

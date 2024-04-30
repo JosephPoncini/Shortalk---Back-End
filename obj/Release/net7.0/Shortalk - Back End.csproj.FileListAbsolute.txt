@@ -74,3 +74,10 @@ C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\o
 C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\obj\Release\net7.0\Shortalk - Back End.pdb
 C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\obj\Release\net7.0\Shortalk - Back End.genruntimeconfig.cache
 C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\obj\Release\net7.0\ref\Shortalk - Back End.dll
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Release\net7.0\Microsoft.AspNet.SignalR.Core.dll
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Release\net7.0\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Release\net7.0\Microsoft.Owin.dll
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Release\net7.0\Microsoft.Owin.Host.SystemWeb.dll
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Release\net7.0\Microsoft.Owin.Security.dll
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Release\net7.0\Newtonsoft.Json.dll
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Release\net7.0\Owin.dll

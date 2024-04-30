@@ -8,6 +8,8 @@ C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\b
 C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Azure.Core.dll
 C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Azure.Identity.dll
 C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Humanizer.dll
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Microsoft.AspNet.SignalR.Core.dll
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Microsoft.AspNet.SignalR.SystemWeb.dll
 C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Microsoft.Data.SqlClient.dll
@@ -26,9 +28,14 @@ C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\b
 C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
 C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Microsoft.OpenApi.dll
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Microsoft.Owin.dll
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Microsoft.Owin.Host.SystemWeb.dll
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Microsoft.Owin.Security.dll
 C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Microsoft.SqlServer.Server.dll
 C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
 C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Mono.TextTemplating.dll
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Owin.dll
 C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
