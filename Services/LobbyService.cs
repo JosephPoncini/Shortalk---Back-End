@@ -26,12 +26,22 @@ namespace Shortalk___Back_End.Services
         {
             bool result = false;
 
-            if(!DoesLobbyExist(LobbyToAdd.LobbyName))
+            if (!DoesLobbyExist(LobbyToAdd.LobbyName))
             {
                 LobbyRoomModel newLobby = new LobbyRoomModel();
 
                 newLobby.ID = LobbyToAdd.ID;
                 newLobby.LobbyName = LobbyToAdd.LobbyName;
+                newLobby.TeamMemberA1 = "";
+                newLobby.TeamMemberA2 = "";
+                newLobby.TeamMemberA3 = "";
+                newLobby.TeamMemberA4 = "";
+                newLobby.TeamMemberA5 = "";
+                newLobby.TeamMemberB1 = "";
+                newLobby.TeamMemberB2 = "";
+                newLobby.TeamMemberB3 = "";
+                newLobby.TeamMemberB4 = "";
+                newLobby.TeamMemberB5 = "";
 
                 _context.Add(newLobby);
 
@@ -52,7 +62,8 @@ namespace Shortalk___Back_End.Services
 
             bool result = false;
 
-            if(foundLobby != null){
+            if (foundLobby != null)
+            {
 
                 _context.Remove<LobbyRoomModel>(foundLobby);
                 result = _context.SaveChanges() != 0;

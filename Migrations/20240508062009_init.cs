@@ -16,7 +16,17 @@ namespace Shortalk___Back_End.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    LobbyName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    LobbyName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TeamMemberA1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TeamMemberA2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TeamMemberA3 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TeamMemberA4 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TeamMemberA5 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TeamMemberB1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TeamMemberB2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TeamMemberB3 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TeamMemberB4 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TeamMemberB5 = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -29,9 +39,9 @@ namespace Shortalk___Back_End.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Username = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Salt = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Hash = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Salt = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Hash = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
