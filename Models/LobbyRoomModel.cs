@@ -10,6 +10,10 @@ namespace Shortalk___Back_End.Models
         public int ID { get; set; }
         public string? LobbyName { get; set; }
 
+        // public string[] Team1Names { get; set; }
+
+        // public string[] Team2Name { get; set;}
+
         public LobbyRoomModel()
         {
             
