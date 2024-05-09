@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Shortalk - Back End.props" />
+</Project>

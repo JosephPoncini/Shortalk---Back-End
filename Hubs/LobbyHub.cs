@@ -39,13 +39,22 @@ public class LobbyHub : Hub
 
     public async Task JoinSpecificLobbyRoom(UserConnection conn)
     {
+        bool res = _data.AddPlayerToLobby(conn.LobbyRoom, conn.Username);
 
-        await Groups.AddToGroupAsync(Context.ConnectionId, conn.LobbyRoom);
+        if (res)
+        {
 
-        _shared.connections[Context.ConnectionId] = conn;
+            LobbyRoomModel lobby = _data.GetLobbyByLobbyName(conn.LobbyRoom);
 
-        await Clients.Group(conn.LobbyRoom)
-            .SendAsync("JoinSpecificLobbyRoom", "admin", $"{conn.Username} has joined {conn.LobbyRoom}");
+            string json = JsonConvert.SerializeObject(lobby);
+
+            await Groups.AddToGroupAsync(Context.ConnectionId, conn.LobbyRoom);
+
+            _shared.connections[Context.ConnectionId] = conn;
+
+            await Clients.Group(conn.LobbyRoom)
+                .SendAsync("JoinSpecificLobbyRoom", "admin", $"{conn.Username} has joined {conn.LobbyRoom}", json);
+        }
     }
 
     public async Task SendMessage(string msg)
