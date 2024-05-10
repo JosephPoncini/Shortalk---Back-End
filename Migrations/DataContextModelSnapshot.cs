@@ -29,8 +29,46 @@ namespace Shortalk___Back_End.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<string>("LobbyName")
+                    b.Property<string>("Host")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LobbyName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("NumberOfRounds")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("ReadyStatusA1")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("ReadyStatusA2")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("ReadyStatusA3")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("ReadyStatusA4")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("ReadyStatusA5")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("ReadyStatusB1")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("ReadyStatusB2")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("ReadyStatusB3")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("ReadyStatusB4")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("ReadyStatusB5")
+                        .HasColumnType("bit");
 
                     b.Property<string>("TeamMemberA1")
                         .IsRequired()
@@ -71,6 +109,9 @@ namespace Shortalk___Back_End.Migrations
                     b.Property<string>("TeamMemberB5")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TimeLimit")
+                        .HasColumnType("int");
 
                     b.HasKey("ID");
 

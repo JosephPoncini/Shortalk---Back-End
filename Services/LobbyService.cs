@@ -33,6 +33,9 @@ namespace Shortalk___Back_End.Services
 
                 newLobby.ID = LobbyToAdd.ID;
                 newLobby.LobbyName = LobbyToAdd.LobbyName;
+                newLobby.Host = LobbyToAdd.Host;
+                newLobby.NumberOfRounds = 1;
+                newLobby.TimeLimit = 90;
                 newLobby.TeamMemberA1 = "";
                 newLobby.TeamMemberA2 = "";
                 newLobby.TeamMemberA3 = "";
@@ -43,6 +46,17 @@ namespace Shortalk___Back_End.Services
                 newLobby.TeamMemberB3 = "";
                 newLobby.TeamMemberB4 = "";
                 newLobby.TeamMemberB5 = "";
+
+                newLobby.ReadyStatusA1 = false;
+                newLobby.ReadyStatusA2 = false;
+                newLobby.ReadyStatusA3 = false;
+                newLobby.ReadyStatusA4 = false;
+                newLobby.ReadyStatusA5 = false;
+                newLobby.ReadyStatusB1 = false;
+                newLobby.ReadyStatusB2 = false;
+                newLobby.ReadyStatusB3 = false;
+                newLobby.ReadyStatusB4 = false;
+                newLobby.ReadyStatusB5 = false;
 
                 _context.Add(newLobby);
 
@@ -109,28 +123,116 @@ namespace Shortalk___Back_End.Services
                 lobby.TeamMemberB3 = playerName;
                 result = true;
             }
-            else if(lobby.TeamMemberA4 == "")
+            else if (lobby.TeamMemberA4 == "")
             {
                 lobby.TeamMemberA4 = playerName;
                 result = true;
             }
-            else if(lobby.TeamMemberB4 == "")
+            else if (lobby.TeamMemberB4 == "")
             {
                 lobby.TeamMemberB4 = playerName;
                 result = true;
             }
-            else if(lobby.TeamMemberA5 == "")
+            else if (lobby.TeamMemberA5 == "")
             {
                 lobby.TeamMemberA5 = playerName;
                 result = true;
             }
-            else if(lobby.TeamMemberB5 == "")
+            else if (lobby.TeamMemberB5 == "")
             {
                 lobby.TeamMemberB5 = playerName;
                 result = true;
             }
 
-            if(result){
+            if (result)
+            {
+                _context.Update<LobbyRoomModel>(lobby);
+                result = _context.SaveChanges() != 0;
+            }
+
+            return result;
+        }
+
+
+        public bool DoesUserExistInLobby(string lobbyName, string playerName)
+        {
+            bool result = false;
+
+            LobbyRoomModel lobby = GetLobbyByLobbyName(lobbyName);
+
+            if (playerName == lobby.TeamMemberA1 ||
+                playerName == lobby.TeamMemberA2 ||
+                playerName == lobby.TeamMemberA3 ||
+                playerName == lobby.TeamMemberA4 ||
+                playerName == lobby.TeamMemberA5 ||
+                playerName == lobby.TeamMemberB1 ||
+                playerName == lobby.TeamMemberB2 ||
+                playerName == lobby.TeamMemberB3 ||
+                playerName == lobby.TeamMemberB4 ||
+                playerName == lobby.TeamMemberB5)
+            {
+                result = true;
+            }
+
+            return result;
+        }
+
+        public bool TogglePlayerAsReady(string lobbyName, string playerName)
+        {
+            bool result = false;
+
+            LobbyRoomModel lobby = GetLobbyByLobbyName(lobbyName);
+
+            switch (playerName)
+            {
+                case var _ when playerName == lobby.TeamMemberA1:
+                    lobby.ReadyStatusA1 = !lobby.ReadyStatusA1;
+                    result = true;
+                    break;
+                case var _ when playerName == lobby.TeamMemberA2:
+                    lobby.ReadyStatusA2 = !lobby.ReadyStatusA2;
+                    result = true;
+                    break;
+                case var _ when playerName == lobby.TeamMemberA3:
+                    lobby.ReadyStatusA3 = !lobby.ReadyStatusA3;
+                    result = true;
+                    break;
+                case var _ when playerName == lobby.TeamMemberA4:
+                    lobby.ReadyStatusA4 = !lobby.ReadyStatusA4;
+                    result = true;
+                    break;
+                case var _ when playerName == lobby.TeamMemberA5:
+                    lobby.ReadyStatusA5 = !lobby.ReadyStatusA5;
+                    result = true;
+                    break;
+                case var _ when playerName == lobby.TeamMemberB1:
+                    lobby.ReadyStatusB1 = !lobby.ReadyStatusB1;
+                    result = true;
+                    break;
+                case var _ when playerName == lobby.TeamMemberB2:
+                    lobby.ReadyStatusB2 = !lobby.ReadyStatusB2;
+                    result = true;
+                    break;
+                case var _ when playerName == lobby.TeamMemberB3:
+                    lobby.ReadyStatusB3 = !lobby.ReadyStatusB3;
+                      result = true;
+                    break;
+                case var _ when playerName == lobby.TeamMemberB4:
+                    lobby.ReadyStatusB4 = !lobby.ReadyStatusB4;
+                    result = true;
+                    break;
+                case var _ when playerName == lobby.TeamMemberB5:
+                    lobby.ReadyStatusB5 = !lobby.ReadyStatusB5;
+                    result = true;
+                    break;
+                default:
+                    Console.WriteLine("error in switch statements");
+                    break;
+            }
+
+            
+            if (result)
+            {
                 _context.Update<LobbyRoomModel>(lobby);
                 result = _context.SaveChanges() != 0;
             }

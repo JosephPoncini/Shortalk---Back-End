@@ -9,5 +9,6 @@ namespace Shortalk___Back_End.Models.DTO
     {
         public int ID { get; set; }
         public string LobbyName { get; set; }
+        public string Host {get; set;}
     }
 }

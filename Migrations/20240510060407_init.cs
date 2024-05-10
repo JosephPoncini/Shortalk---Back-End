@@ -16,7 +16,10 @@ namespace Shortalk___Back_End.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    LobbyName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LobbyName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Host = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NumberOfRounds = table.Column<int>(type: "int", nullable: false),
+                    TimeLimit = table.Column<int>(type: "int", nullable: false),
                     TeamMemberA1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TeamMemberA2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TeamMemberA3 = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -26,7 +29,17 @@ namespace Shortalk___Back_End.Migrations
                     TeamMemberB2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TeamMemberB3 = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TeamMemberB4 = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TeamMemberB5 = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    TeamMemberB5 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ReadyStatusA1 = table.Column<bool>(type: "bit", nullable: false),
+                    ReadyStatusA2 = table.Column<bool>(type: "bit", nullable: false),
+                    ReadyStatusA3 = table.Column<bool>(type: "bit", nullable: false),
+                    ReadyStatusA4 = table.Column<bool>(type: "bit", nullable: false),
+                    ReadyStatusA5 = table.Column<bool>(type: "bit", nullable: false),
+                    ReadyStatusB1 = table.Column<bool>(type: "bit", nullable: false),
+                    ReadyStatusB2 = table.Column<bool>(type: "bit", nullable: false),
+                    ReadyStatusB3 = table.Column<bool>(type: "bit", nullable: false),
+                    ReadyStatusB4 = table.Column<bool>(type: "bit", nullable: false),
+                    ReadyStatusB5 = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
