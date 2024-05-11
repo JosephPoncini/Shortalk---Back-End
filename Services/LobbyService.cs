@@ -153,7 +153,6 @@ namespace Shortalk___Back_End.Services
             return result;
         }
 
-
         public bool DoesUserExistInLobby(string lobbyName, string playerName)
         {
             bool result = false;
@@ -215,7 +214,7 @@ namespace Shortalk___Back_End.Services
                     break;
                 case var _ when playerName == lobby.TeamMemberB3:
                     lobby.ReadyStatusB3 = !lobby.ReadyStatusB3;
-                      result = true;
+                    result = true;
                     break;
                 case var _ when playerName == lobby.TeamMemberB4:
                     lobby.ReadyStatusB4 = !lobby.ReadyStatusB4;
@@ -230,12 +229,36 @@ namespace Shortalk___Back_End.Services
                     break;
             }
 
-            
+
             if (result)
             {
                 _context.Update<LobbyRoomModel>(lobby);
                 result = _context.SaveChanges() != 0;
             }
+
+            return result;
+        }
+
+        public bool ChangeNumberOfRounds(string lobbyName, string NumberOfRounds)
+        {
+
+            LobbyRoomModel lobby = GetLobbyByLobbyName(lobbyName);
+            lobby.NumberOfRounds = int.Parse(NumberOfRounds);
+
+            _context.Update<LobbyRoomModel>(lobby);
+            bool result = _context.SaveChanges() != 0;
+
+            return result;
+        }
+
+        public bool ChangeTimeLimit(string lobbyName, string TimeLimit)
+        {
+
+            LobbyRoomModel lobby = GetLobbyByLobbyName(lobbyName);
+            lobby.TimeLimit = int.Parse(TimeLimit);
+
+            _context.Update<LobbyRoomModel>(lobby);
+            bool result = _context.SaveChanges() != 0;
 
             return result;
         }

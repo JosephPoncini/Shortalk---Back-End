@@ -79,4 +79,30 @@ public class LobbyHub : Hub
         }
     }
 
+    public async Task ChangeNumberOfRounds(UserConnection conn, string NumberOfRounds)
+    {
+        if (_data.ChangeNumberOfRounds(conn.LobbyRoom, NumberOfRounds))
+        {
+            LobbyRoomModel lobby = _data.GetLobbyByLobbyName(conn.LobbyRoom);
+
+            string json = JsonConvert.SerializeObject(lobby);
+
+            await Clients.Group(conn.LobbyRoom)
+                .SendAsync("ChangeNumberOfRounds", json);
+        }
+    }
+
+        public async Task ChangeTimeLimit(UserConnection conn, string TimeLimit)
+    {
+        if (_data.ChangeTimeLimit(conn.LobbyRoom, TimeLimit))
+        {
+            LobbyRoomModel lobby = _data.GetLobbyByLobbyName(conn.LobbyRoom);
+
+            string json = JsonConvert.SerializeObject(lobby);
+
+            await Clients.Group(conn.LobbyRoom)
+                .SendAsync("ChangeTimeLimit", json);
+        }
+    }
+
 }
