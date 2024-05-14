@@ -1,6 +1,7 @@
 C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Release\net7.0\publish\Shortalk - Back End.exe
 C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Release\net7.0\publish\appsettings.Development.json
 C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Release\net7.0\publish\appsettings.json
+C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Release\net7.0\publish\words.json
 C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Release\net7.0\publish\Shortalk - Back End.dll
 C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Release\net7.0\publish\Shortalk - Back End.runtimeconfig.json
 C:\Desktop\CodeStack Academy\Level 3\Full Stack - Shortalk\Shortalk - Back End\bin\Release\net7.0\publish\Shortalk - Back End.pdb

@@ -24,5 +24,11 @@ namespace Shortalk___Back_End.Controllers
         public bool AddGame(LobbyRoomModel lobby){
             return _data.AddGame(lobby);
         }
+
+        [HttpGet]
+        [Route("GetGameInfo")]
+        public GameModel GetGameInfo(string lobbyName){
+            return _data.GetGameInfo(lobbyName);
+        }
     }
 }

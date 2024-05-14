@@ -88,4 +88,9 @@ public class GameService
 
         return result;
     }
+
+    public GameModel GetGameInfo(string lobbyName)
+    {
+        return _context.GameInfo.SingleOrDefault(game => game.LobbyName == lobbyName);
+    }
 }

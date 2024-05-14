@@ -15,9 +15,11 @@ public class GameHub : Hub
         _data = data;
     }
 
-    public async Task JoinGameRoom(UserConnection conn, string host)
-    {
+    public async Task GetGameInfo(UserConnection conn, string host)
+    {   
+        
+
         await Clients.Group(conn.LobbyRoom)
-            .SendAsync("JoinGameRoom","admin", $"{conn.Username} has joined {conn.LobbyRoom}");
+            .SendAsync("GetGameInfo", "admin", $"{conn.Username} has joined {conn.LobbyRoom}");
     }
 }
