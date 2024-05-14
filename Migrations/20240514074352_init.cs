@@ -11,6 +11,38 @@ namespace Shortalk___Back_End.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "GameInfo",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    LobbyName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Host = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NumberOfRounds = table.Column<int>(type: "int", nullable: false),
+                    TimeLimit = table.Column<int>(type: "int", nullable: false),
+                    TeamMemberA1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TeamMemberA2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TeamMemberA3 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TeamMemberA4 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TeamMemberA5 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TeamMemberB1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TeamMemberB2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TeamMemberB3 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TeamMemberB4 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TeamMemberB5 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Turn = table.Column<int>(type: "int", nullable: false),
+                    Speaker = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    OnePointWord = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ThreePointWord = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Team1Score = table.Column<int>(type: "int", nullable: false),
+                    Team2Score = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GameInfo", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "LobbyInfo",
                 columns: table => new
                 {
@@ -65,6 +97,9 @@ namespace Shortalk___Back_End.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "GameInfo");
+
             migrationBuilder.DropTable(
                 name: "LobbyInfo");
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Shortalk___Back_End.Models;
 using Shortalk___Back_End.Models.DTO;
 using Shortalk___Back_End.Services;
 
@@ -28,6 +29,12 @@ namespace Shortalk___Back_End.Controllers
         [Route("JoinLobby/{lobbyName}")]
         public bool JoinLobby(string lobbyName){
             return _data.DoesLobbyExist(lobbyName);
+        }
+
+        [HttpGet]
+        [Route("GetLobby/{lobbyName}")]
+        public LobbyRoomModel GetLobby(string lobbyName){
+            return _data.GetLobbyByLobbyName(lobbyName);
         }
     }
 }

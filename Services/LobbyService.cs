@@ -47,7 +47,7 @@ namespace Shortalk___Back_End.Services
                 newLobby.TeamMemberB4 = "";
                 newLobby.TeamMemberB5 = "";
 
-                newLobby.ReadyStatusA1 = false;
+                newLobby.ReadyStatusA1 = true;
                 newLobby.ReadyStatusA2 = false;
                 newLobby.ReadyStatusA3 = false;
                 newLobby.ReadyStatusA4 = false;

@@ -11,6 +11,7 @@ builder.Services.AddSignalR();
 // Add services to the container.
 builder.Services.AddScoped<LobbyService>();
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<GameService>();
 builder.Services.AddScoped<PasswordService>();
 
 //this is how we’re connecting our database to API
@@ -56,5 +57,6 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.MapHub<LobbyHub>("/Lobby");
+app.MapHub<GameHub>("/Game");
 
 app.Run();

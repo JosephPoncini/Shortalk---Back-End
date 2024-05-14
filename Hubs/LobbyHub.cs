@@ -92,7 +92,7 @@ public class LobbyHub : Hub
         }
     }
 
-        public async Task ChangeTimeLimit(UserConnection conn, string TimeLimit)
+    public async Task ChangeTimeLimit(UserConnection conn, string TimeLimit)
     {
         if (_data.ChangeTimeLimit(conn.LobbyRoom, TimeLimit))
         {
@@ -103,6 +103,12 @@ public class LobbyHub : Hub
             await Clients.Group(conn.LobbyRoom)
                 .SendAsync("ChangeTimeLimit", json);
         }
+    }
+
+    public async Task StartGame(UserConnection conn)
+    {
+        await Clients.Group(conn.LobbyRoom)
+            .SendAsync("StartGame");
     }
 
 }

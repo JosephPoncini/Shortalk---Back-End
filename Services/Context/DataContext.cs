@@ -16,6 +16,7 @@ namespace Shortalk___Back_End.Services.Context
 
         public DbSet<UserModel> UserInfo { get; set; }
         public DbSet<LobbyRoomModel> LobbyInfo { get; set; }
+        public DbSet<GameModel> GameInfo {get; set;}
 
         public DataContext(DbContextOptions options) : base(options) { }
 
