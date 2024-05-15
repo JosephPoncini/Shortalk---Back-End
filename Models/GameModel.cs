@@ -29,13 +29,12 @@ namespace Shortalk___Back_End.Models
         public int Team1Score { get; set; }
         public int Team2Score { get; set; }
 
-        public bool OnePointWordHasBeenSaid { get; set; }
-        public bool ThreePointWordHasBeenSaid { get; set; }
-
-        public string BuzzWords {get; set;} = string.Empty;
-        public string SkippedWords {get; set;} = string.Empty;
-        public string OnePointWords {get; set;} = string.Empty;
-        public string ThreePointWords {get; set;} = string.Empty;
+        // public bool OnePointWordHasBeenSaid { get; set; }
+        // public bool ThreePointWordHasBeenSaid { get; set; }
+        // public string BuzzWords {get; set;} = string.Empty;
+        // public string SkippedWords {get; set;} = string.Empty;
+        // public string OnePointWords {get; set;} = string.Empty;
+        // public string ThreePointWords {get; set;} = string.Empty;
 
     }
 }
