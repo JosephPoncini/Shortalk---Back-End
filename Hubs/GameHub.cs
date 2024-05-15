@@ -15,11 +15,14 @@ public class GameHub : Hub
         _data = data;
     }
 
-    public async Task GetGameInfo(UserConnection conn, string host)
-    {   
-        
-
-        await Clients.Group(conn.LobbyRoom)
-            .SendAsync("GetGameInfo", "admin", $"{conn.Username} has joined {conn.LobbyRoom}");
+    public async Task GetNextCard(UserConnection conn)
+    {
+        if (_data.GetNextCard(conn.LobbyRoom))
+        {
+            GameModel game = _data.GetGameByLobbyName(conn.LobbyRoom);
+            string json = JsonConvert.SerializeObject(game);
+            await Clients.Group(conn.LobbyRoom)
+                .SendAsync("GetNextCard", json);
+        }
     }
 }

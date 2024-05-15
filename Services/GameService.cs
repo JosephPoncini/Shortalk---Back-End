@@ -16,6 +16,11 @@ public class GameService
         _context = context;
     }
 
+    public GameModel GetGameByLobbyName(string lobbyName)
+    {
+        return _context.GameInfo.SingleOrDefault(game => game.LobbyName == lobbyName);
+    }
+
     public CardModel GetCard()
     {
         string json = File.ReadAllText("words.json");
@@ -23,7 +28,7 @@ public class GameService
 
         Random random = new Random();
         int index = random.Next(0, data.Count);
-        
+
 
         CardChoiceModel randomCardChoice = data[index];
 
@@ -88,5 +93,22 @@ public class GameService
     public GameModel GetGameInfo(string lobbyName)
     {
         return _context.GameInfo.SingleOrDefault(game => game.LobbyName == lobbyName);
+    }
+
+    public bool GetNextCard(string lobbyName)
+    {
+
+        GameModel game = GetGameByLobbyName(lobbyName);
+
+        CardModel card = GetCard();
+
+        game.OnePointWord = card.TopWord;
+        game.ThreePointWords = card.BottomWord;
+
+        _context.Update<GameModel>(game);
+        bool result = _context.SaveChanges() != 0;
+
+        return result;
+
     }
 }
