@@ -7,7 +7,7 @@ namespace Shortalk___Back_End.Models
 {
     public class CardChoiceModel
     {
-        public string TopWord { get; set; } = string.Empty;
-        public List<string> BottomWords { get; set; }
+        public string Top { get; set; }
+        public List<string> Bottom { get; set; }
     }
 }

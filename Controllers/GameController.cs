@@ -26,9 +26,15 @@ namespace Shortalk___Back_End.Controllers
         }
 
         [HttpGet]
-        [Route("GetGameInfo")]
+        [Route("GetGameInfo/{lobbyName}")]
         public GameModel GetGameInfo(string lobbyName){
             return _data.GetGameInfo(lobbyName);
+        }
+
+        [HttpGet]
+        [Route("GetCard")]
+        public CardModel GetCard(){
+            return _data.GetCard();
         }
     }
 }

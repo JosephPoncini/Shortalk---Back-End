@@ -16,40 +16,36 @@ public class GameService
         _context = context;
     }
 
-    public CardModel getCard()
+    public CardModel GetCard()
     {
-        // string json = File.ReadAllText("words.json");
-        // List<CardChoiceModel> cardChoices = JsonSerializer.Deserialize<List<CardChoiceModel>>(json)!;
+        string json = File.ReadAllText("words.json");
+        List<CardChoiceModel> data = JsonSerializer.Deserialize<List<CardChoiceModel>>(json);
 
-        // Console.WriteLine(cardChoices);
+        Random random = new Random();
+        int index = random.Next(0, data.Count);
+        
 
-        // Random random = new Random();
-        // int index = random.Next(0, cardChoices.Count);
+        CardChoiceModel randomCardChoice = data[index];
 
-        // CardChoiceModel randomCardChoice = cardChoices[index];
-
-        // int indexj = random.Next(0, randomCardChoice.BottomWords.Count);
-
-        // CardModel card = new CardModel();
-
-        // int coinFlip = random.Next(0, 2);
-
-        // switch (coinFlip)
-        // {
-        //     case 0:
-        //         card.TopWord = randomCardChoice.TopWord;
-        //         card.BottomWord = randomCardChoice.TopWord + randomCardChoice.BottomWords[indexj];
-        //         break;
-        //     case 1:
-        //         card.TopWord = randomCardChoice.BottomWords[indexj];
-        //         card.BottomWord = randomCardChoice.TopWord + randomCardChoice.BottomWords[indexj];
-        //         break;
-        // }
+        Random random2 = new Random();
+        int indexj = random2.Next(0, randomCardChoice.Bottom.Count);
 
         CardModel card = new CardModel();
 
-        card.TopWord = "Code";
-        card.BottomWord = "Code Stack";
+        int coinFlip = random.Next(0, 2);
+
+        switch (coinFlip)
+        {
+            case 0:
+                card.TopWord = randomCardChoice.Top;
+                card.BottomWord = randomCardChoice.Top + " " + randomCardChoice.Bottom[indexj];
+                break;
+            case 1:
+                card.TopWord = randomCardChoice.Bottom[indexj];
+                card.BottomWord = randomCardChoice.Top + " " + randomCardChoice.Bottom[indexj];
+                break;
+        }
+
         return card;
 
     }
@@ -58,7 +54,7 @@ public class GameService
     {
 
         GameModel newGame = new GameModel();
-        CardModel card = getCard();
+        CardModel card = GetCard();
 
         // newGame.ID = lobby.ID;
         newGame.LobbyName = lobby.LobbyName;
