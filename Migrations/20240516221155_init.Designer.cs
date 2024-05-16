@@ -11,7 +11,7 @@ using Shortalk___Back_End.Services.Context;
 namespace Shortalk___Back_End.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240516070415_init")]
+    [Migration("20240516221155_init")]
     partial class init
     {
         /// <inheritdoc />

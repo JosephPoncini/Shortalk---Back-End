@@ -24,7 +24,7 @@ builder.Services.AddDbContext<DataContext>(Options => Options.UseSqlServer(conne
 
 builder.Services.AddCors(options => options.AddPolicy("ShortalkPolicy", 
 builder => {
-    builder.WithOrigins("http://localhost:5151","http://localhost:3000","https://shortalk-front-end.vercel.app")
+    builder.WithOrigins("http://localhost:5151","http://localhost:3000","https://shortalk-front-end.vercel.app","*")
     .AllowAnyHeader()
     .AllowAnyMethod()
     .AllowCredentials();

@@ -16,6 +16,11 @@ public class GameService
         _context = context;
     }
 
+    public bool DoesGameExist(string lobbyName)
+    {
+        return _context.GameInfo.SingleOrDefault(lobby => lobby.LobbyName == lobbyName) != null;
+    }
+
     public GameModel GetGameByLobbyName(string lobbyName)
     {
         return _context.GameInfo.SingleOrDefault(game => game.LobbyName == lobbyName);
@@ -27,8 +32,8 @@ public class GameService
         List<CardChoiceModel> data = JsonSerializer.Deserialize<List<CardChoiceModel>>(json);
 
         Random random = new Random();
-        int index = random.Next(0, data.Count);
 
+        int index = random.Next(0, data.Count);
 
         CardChoiceModel randomCardChoice = data[index];
 
@@ -57,9 +62,14 @@ public class GameService
 
     public bool AddGame(LobbyRoomModel lobby)
     {
+        bool res = DoesGameExist(lobby.LobbyName);
+        if(res){
+            return false;
+        }
 
         GameModel newGame = new GameModel();
         CardModel card = GetCard();
+
 
         // newGame.ID = lobby.ID;
         newGame.LobbyName = lobby.LobbyName;
@@ -86,12 +96,14 @@ public class GameService
         newGame.ThreePointWordHasBeenSaid = false;
         newGame.BuzzWords = string.Empty;
         newGame.SkippedWords = string.Empty;
-        newGame.OnePointWord = string.Empty;
-        newGame.ThreePointWord = string.Empty;
+        newGame.OnePointWords = string.Empty;
+        newGame.ThreePointWords = string.Empty;
 
         _context.Add(newGame);
 
         bool result = _context.SaveChanges() != 0;
+        Console.WriteLine(card.TopWord);
+        Console.WriteLine(card.BottomWord);
 
         return result;
     }
@@ -109,7 +121,7 @@ public class GameService
         CardModel card = GetCard();
 
         game.OnePointWord = card.TopWord;
-        game.ThreePointWord = card.BottomWord; 
+        game.ThreePointWord = card.BottomWord;
 
         _context.Update<GameModel>(game);
         bool result = _context.SaveChanges() != 0;
