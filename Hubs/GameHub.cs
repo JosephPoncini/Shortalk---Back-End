@@ -23,7 +23,7 @@ public class GameHub : Hub
         _shared.connections[Context.ConnectionId] = conn;
 
         await Clients.Group(conn.LobbyRoom)
-            .SendAsync("JoinSpecificLobbyRoom", "admin", $"{conn.Username} has joined the game");
+            .SendAsync("JoinSpecificGame", "admin", $"{conn.Username} has joined the game");
 
     }
 
@@ -35,6 +35,24 @@ public class GameHub : Hub
             string json = JsonConvert.SerializeObject(game);
             await Clients.Group(conn.LobbyRoom)
                 .SendAsync("GetNextCard", json);
+        }
+    }
+
+    public async Task SubmitGuess(string msg)
+    {
+        if (_shared.connections.TryGetValue(Context.ConnectionId, out UserConnection conn))
+        {
+            await Clients.Group(conn.LobbyRoom)
+                .SendAsync("ReceiveGuess", conn.Username, msg);
+        }
+    }
+
+    public async Task TypeDescription(string description)
+    {
+        if (_shared.connections.TryGetValue(Context.ConnectionId, out UserConnection conn))
+        {
+            await Clients.Group(conn.LobbyRoom)
+                .SendAsync("RenderDescription", description);
         }
     }
 }

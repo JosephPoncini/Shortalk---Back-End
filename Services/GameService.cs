@@ -82,6 +82,12 @@ public class GameService
         newGame.ThreePointWord = card.BottomWord;
         newGame.Team1Score = 0;
         newGame.Team2Score = 0;
+        newGame.OnePointWordHasBeenSaid = false;
+        newGame.ThreePointWordHasBeenSaid = false;
+        newGame.BuzzWords = string.Empty;
+        newGame.SkippedWords = string.Empty;
+        newGame.OnePointWord = string.Empty;
+        newGame.ThreePointWord = string.Empty;
 
         _context.Add(newGame);
 
