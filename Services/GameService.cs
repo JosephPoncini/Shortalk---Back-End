@@ -103,7 +103,7 @@ public class GameService
         CardModel card = GetCard();
 
         game.OnePointWord = card.TopWord;
-        game.ThreePointWords = card.BottomWord;
+        game.ThreePointWord = card.BottomWord; 
 
         _context.Update<GameModel>(game);
         bool result = _context.SaveChanges() != 0;

@@ -11,7 +11,7 @@ using Shortalk___Back_End.Services.Context;
 namespace Shortalk___Back_End.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240514074352_init")]
+    [Migration("20240516070415_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -32,6 +32,10 @@ namespace Shortalk___Back_End.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
+                    b.Property<string>("BuzzWords")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Host")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -44,6 +48,17 @@ namespace Shortalk___Back_End.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("OnePointWord")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("OnePointWordHasBeenSaid")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("OnePointWords")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SkippedWords")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -98,6 +113,13 @@ namespace Shortalk___Back_End.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ThreePointWord")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("ThreePointWordHasBeenSaid")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ThreePointWords")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

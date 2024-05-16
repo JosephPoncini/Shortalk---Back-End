@@ -35,7 +35,13 @@ namespace Shortalk___Back_End.Migrations
                     OnePointWord = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ThreePointWord = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Team1Score = table.Column<int>(type: "int", nullable: false),
-                    Team2Score = table.Column<int>(type: "int", nullable: false)
+                    Team2Score = table.Column<int>(type: "int", nullable: false),
+                    OnePointWordHasBeenSaid = table.Column<bool>(type: "bit", nullable: false),
+                    ThreePointWordHasBeenSaid = table.Column<bool>(type: "bit", nullable: false),
+                    BuzzWords = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SkippedWords = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    OnePointWords = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ThreePointWords = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

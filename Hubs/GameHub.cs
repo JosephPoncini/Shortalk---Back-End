@@ -15,6 +15,18 @@ public class GameHub : Hub
         _data = data;
     }
 
+    public async Task JoinSpecificGame(UserConnection conn)
+    {
+
+        await Groups.AddToGroupAsync(Context.ConnectionId, conn.LobbyRoom);
+
+        _shared.connections[Context.ConnectionId] = conn;
+
+        await Clients.Group(conn.LobbyRoom)
+            .SendAsync("JoinSpecificLobbyRoom", "admin", $"{conn.Username} has joined the game");
+
+    }
+
     public async Task GetNextCard(UserConnection conn)
     {
         if (_data.GetNextCard(conn.LobbyRoom))
