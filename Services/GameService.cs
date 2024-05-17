@@ -395,7 +395,7 @@ public class GameService
             }
         }
 
-        int index = ((int)Math.Ceiling((double)game.Turn / 2) % numberOfTeamates) - 1;
+        int index = (((game.Turn - 1 )/ 2) % numberOfTeamates);
 
         game.Speaker = team[index];
 
