@@ -21,19 +21,22 @@ namespace Shortalk___Back_End.Controllers
 
         [HttpPost]
         [Route("AddGame")]
-        public bool AddGame(LobbyRoomModel lobby){
+        public bool AddGame(LobbyRoomModel lobby)
+        {
             return _data.AddGame(lobby);
         }
 
         [HttpGet]
         [Route("GetGameInfo/{lobbyName}")]
-        public GameModel GetGameInfo(string lobbyName){
+        public GameModel GetGameInfo(string lobbyName)
+        {
             return _data.GetGameInfo(lobbyName);
         }
 
         [HttpGet]
         [Route("GetCard")]
-        public CardModel GetCard(){
+        public CardModel GetCard()
+        {
             return _data.GetCard();
         }
 
@@ -41,7 +44,7 @@ namespace Shortalk___Back_End.Controllers
         [Route("AreStringsOffByOneChar/{str1}/{str2}")]
         public bool AreStringsOffByOneChar(string str1, string str2)
         {
-            return _data.AreStringsOffByOneChar(str1,str2);
+            return _data.AreStringsOffByOneChar(str1, str2);
         }
 
         [HttpPut]
@@ -70,6 +73,34 @@ namespace Shortalk___Back_End.Controllers
         public bool AppendSkipPointWords(string lobbyName, string skipWordTop, string skipWordBottom)
         {
             return _data.AppendSkipPointWords(lobbyName, skipWordTop, skipWordBottom);
+        }
+
+        [HttpPut]
+        [Route("ChangeScore/{lobbyName}/{Team}/{point}")]
+        public bool ChangeScore(string lobbyName, string Team, int point)
+        {
+            return _data.ChangeScore(lobbyName, Team, point);
+        }
+
+        [HttpPut]
+        [Route("GoToNextTurn/{lobbyName}")]
+        public bool GoToNextTurn(string lobbyName)
+        {
+            return _data.GoToNextTurn(lobbyName);
+        }
+
+        [HttpPut]
+        [Route("UpdateSpeaker/{lobbyName}")]
+        public bool UpdateSpeaker(string lobbyName)
+        {
+            return _data.UpdateSpeaker(lobbyName);
+        }
+
+        [HttpPut]
+        [Route("ClearWordLists/{lobbyName}")]
+        public bool ClearWordLists(string lobbyName)
+        {
+            return _data.ClearWordLists(lobbyName);
         }
     }
 }

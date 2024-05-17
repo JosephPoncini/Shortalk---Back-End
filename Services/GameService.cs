@@ -351,4 +351,73 @@ public class GameService
         return result;
     }
 
+    public bool GoToNextTurn(string lobbyName)
+    {
+        GameModel game = GetGameByLobbyName(lobbyName);
+        game.Turn += 1;
+
+        _context.Update<GameModel>(game);
+        bool result = _context.SaveChanges() != 0;
+
+        return result;
+    }
+
+    public bool UpdateSpeaker(string lobbyName)
+    {
+        GameModel game = GetGameByLobbyName(lobbyName);
+
+        string[] team = new string[5];
+
+        switch (game.Turn % 2)
+        {
+            case 0:
+                team[0] = game.TeamMemberB1;
+                team[1] = game.TeamMemberB2;
+                team[2] = game.TeamMemberB3;
+                team[3] = game.TeamMemberB4;
+                team[4] = game.TeamMemberB5;
+                break;
+            case 1:
+                team[0] = game.TeamMemberA1;
+                team[1] = game.TeamMemberA2;
+                team[2] = game.TeamMemberA3;
+                team[3] = game.TeamMemberA4;
+                team[4] = game.TeamMemberA5;
+                break;
+        }
+
+        int numberOfTeamates = 0;
+        for (int i = 0; i < team.Length; i++)
+        {
+            if (team[i] != "")
+            {
+                numberOfTeamates++;
+            }
+        }
+
+        int index = ((int)Math.Ceiling((double)game.Turn / 2) % numberOfTeamates) - 1;
+
+        game.Speaker = team[index];
+
+        _context.Update<GameModel>(game);
+        bool result = _context.SaveChanges() != 0;
+
+        return result;
+    }
+
+    public bool ClearWordLists(string lobbyName)
+    {
+        GameModel game = GetGameByLobbyName(lobbyName);
+        game.BuzzWords = "";
+        game.SkippedWords = "";
+        game.ThreePointWords = "";
+        game.OnePointWords = "";
+
+        _context.Update<GameModel>(game);
+        bool result = _context.SaveChanges() != 0;
+
+        return result;
+    }
+
+
 }
