@@ -38,12 +38,27 @@ public class GameHub : Hub
         }
     }
 
-    public async Task SubmitGuess(string msg)
+    public async Task SubmitGuess(string onePointWord, string threePointWord, string guess)
     {
         if (_shared.connections.TryGetValue(Context.ConnectionId, out UserConnection conn))
         {
+            string color = "black";
+            if(_data.IsGuessOnePoint(conn.LobbyRoom, onePointWord, guess))
+            {
+                color = "green";
+            }else if(_data.IsGuessThreePoint(conn.LobbyRoom, threePointWord, guess))
+            {
+                color = "purple";
+            }else if(_data.IsGuessClose(onePointWord, threePointWord, guess))
+            {
+                color = "yellow";
+            }
+
+            GameModel game = _data.GetGameInfo(conn.LobbyRoom);
+            string json = JsonConvert.SerializeObject(game);
+            
             await Clients.Group(conn.LobbyRoom)
-                .SendAsync("ReceiveGuess", conn.Username, msg);
+                .SendAsync("ReceiveGuess", conn.Username, guess, color, json);
         }
     }
 
@@ -53,6 +68,15 @@ public class GameHub : Hub
         {
             await Clients.Group(conn.LobbyRoom)
                 .SendAsync("RenderDescription", description);
+        }
+    }
+
+    public async Task Buzz()
+    {
+        if (_shared.connections.TryGetValue(Context.ConnectionId, out UserConnection conn))
+        {
+            await Clients.Group(conn.LobbyRoom)
+                .SendAsync("Buzz");
         }
     }
 }

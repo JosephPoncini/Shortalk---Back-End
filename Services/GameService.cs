@@ -63,7 +63,8 @@ public class GameService
     public bool AddGame(LobbyRoomModel lobby)
     {
         bool res = DoesGameExist(lobby.LobbyName);
-        if(res){
+        if (res)
+        {
             return false;
         }
 
@@ -122,6 +123,8 @@ public class GameService
 
         game.OnePointWord = card.TopWord;
         game.ThreePointWord = card.BottomWord;
+        game.OnePointWordHasBeenSaid = false;
+        game.ThreePointWordHasBeenSaid = false;
 
         _context.Update<GameModel>(game);
         bool result = _context.SaveChanges() != 0;
@@ -129,4 +132,223 @@ public class GameService
         return result;
 
     }
+
+    public bool IsGuessOnePoint(string lobbyName, string onePointWord, string guess)
+    {
+        bool result = RemoveSpacesAndLowercase(onePointWord) == RemoveSpacesAndLowercase(guess);
+
+        if (result)
+        {
+            GameModel game = GetGameByLobbyName(lobbyName);
+            game.OnePointWordHasBeenSaid = true;
+            _context.Update<GameModel>(game);
+            result = _context.SaveChanges() != 0;
+        }
+
+        return result;
+    }
+
+    public bool IsGuessThreePoint(string lobbyName, string threePointWord, string guess)
+    {
+        bool result = RemoveSpacesAndLowercase(threePointWord) == RemoveSpacesAndLowercase(guess);
+
+        if (result)
+        {
+            GameModel game = GetGameByLobbyName(lobbyName);
+            game.ThreePointWordHasBeenSaid = true;
+            _context.Update<GameModel>(game);
+            result = _context.SaveChanges() != 0;
+        }
+
+        return result;
+    }
+
+    public bool IsGuessClose(string onePointWord, string threePointWord, string guess)
+    {
+        bool result = AreStringsOffByOneChar(RemoveSpacesAndLowercase(onePointWord), RemoveSpacesAndLowercase(guess)) || AreStringsOffByOneChar(RemoveSpacesAndLowercase(threePointWord), RemoveSpacesAndLowercase(guess));
+
+        return result;
+    }
+
+    public static string RemoveSpacesAndLowercase(string input)
+    {
+        if (string.IsNullOrEmpty(input))
+        {
+            return input;
+        }
+
+        // Remove all spaces and convert to lowercase
+        return new string(input.Where(c => !char.IsWhiteSpace(c)).ToArray()).ToLower();
+    }
+
+    public bool AreStringsOffByOneChar(string str1, string str2)
+    {
+        if (str1 == null || str2 == null)
+        {
+            throw new ArgumentNullException("Input strings cannot be null");
+        }
+
+        // If lengths differ by more than 1, they cannot be off by just one char
+        if (Math.Abs(str1.Length - str2.Length) > 1)
+        {
+            return false;
+        }
+
+        // If the lengths are the same, check for one differing character
+        if (str1.Length == str2.Length)
+        {
+            int mismatchCount = 0;
+
+            for (int i = 0; i < str1.Length; i++)
+            {
+                if (str1[i] != str2[i])
+                {
+                    mismatchCount++;
+                    if (mismatchCount > 1)
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return mismatchCount == 1;
+        }
+
+        // If lengths differ by exactly 1, check for insert/remove case
+        if (str1.Length > str2.Length)
+        {
+            return IsOneEditDistance(str2, str1);
+        }
+        else
+        {
+            return IsOneEditDistance(str1, str2);
+        }
+    }
+
+    private static bool IsOneEditDistance(string shorter, string longer)
+    {
+        int i = 0, j = 0;
+
+        while (i < shorter.Length && j < longer.Length)
+        {
+            if (shorter[i] != longer[j])
+            {
+                // If there is a mismatch, move the pointer of the longer string
+                if (i != j)
+                {
+                    return false;
+                }
+                j++;
+            }
+            else
+            {
+                i++;
+                j++;
+            }
+        }
+
+        return true;
+    }
+
+    public bool ChangeScore(string lobbyName, string Team, int point)
+    {
+
+
+        GameModel game = GetGameByLobbyName(lobbyName);
+
+        switch (Team)
+        {
+            case "Team1":
+                game.Team1Score += point;
+                break;
+            case "Team2":
+                game.Team2Score += point;
+                break;
+            default:
+                return false;
+        }
+
+        _context.Update<GameModel>(game);
+        bool result = _context.SaveChanges() != 0;
+
+        return result;
+
+    }
+
+    public bool AppendBuzzWords(string lobbyName, string buzzWordTop, string buzzWordBottom)
+    {
+        GameModel game = GetGameByLobbyName(lobbyName);
+
+        if (game.BuzzWords == "")
+        {
+            game.BuzzWords = $"{buzzWordTop}-{buzzWordBottom}";
+        }
+        else
+        {
+            game.BuzzWords += "," + $"{buzzWordTop}-{buzzWordBottom}";
+        }
+
+        _context.Update<GameModel>(game);
+        bool result = _context.SaveChanges() != 0;
+
+        return result;
+    }
+
+    public bool AppendOnePointWords(string lobbyName, string onePointWordTop, string onePointWordBottom)
+    {
+        GameModel game = GetGameByLobbyName(lobbyName);
+
+        if (game.OnePointWords == "")
+        {
+            game.OnePointWords = $"{onePointWordTop}-{onePointWordBottom}";
+        }
+        else
+        {
+            game.OnePointWords += "," + $"{onePointWordTop}-{onePointWordBottom}";
+        }
+
+        _context.Update<GameModel>(game);
+        bool result = _context.SaveChanges() != 0;
+
+        return result;
+    }
+
+    public bool AppendThreePointWords(string lobbyName, string threePointWordTop, string threePointWordBottom)
+    {
+        GameModel game = GetGameByLobbyName(lobbyName);
+
+        if (game.ThreePointWords == "")
+        {
+            game.ThreePointWords = $"{threePointWordTop}-{threePointWordBottom}";
+        }
+        else
+        {
+            game.ThreePointWords += "," + $"{threePointWordTop}-{threePointWordBottom}";
+        }
+
+        _context.Update<GameModel>(game);
+        bool result = _context.SaveChanges() != 0;
+
+        return result;
+    }
+
+    public bool AppendSkipPointWords(string lobbyName, string skipWordTop, string skipWordBottom)
+    {
+        GameModel game = GetGameByLobbyName(lobbyName);
+
+        if (game.SkippedWords == "")
+        {
+            game.SkippedWords = $"{skipWordTop}-{skipWordBottom}";
+        }
+        else
+        {
+            game.SkippedWords += "," + $"{skipWordTop}-{skipWordBottom}";
+        }
+
+        _context.Update<GameModel>(game);
+        bool result = _context.SaveChanges() != 0;
+
+        return result;
+    }
+
 }
