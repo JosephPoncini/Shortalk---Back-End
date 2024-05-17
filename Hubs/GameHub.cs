@@ -79,4 +79,13 @@ public class GameHub : Hub
                 .SendAsync("Buzz");
         }
     }
+
+        public async Task GoToNextTurn()
+    {
+        if (_shared.connections.TryGetValue(Context.ConnectionId, out UserConnection conn))
+        {
+            await Clients.Group(conn.LobbyRoom)
+                .SendAsync("GoToNextTurn");
+        }
+    }
 }
