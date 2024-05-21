@@ -88,4 +88,13 @@ public class GameHub : Hub
                 .SendAsync("GoToNextTurn");
         }
     }
+
+        public async Task EndTheGame()
+    {
+        if (_shared.connections.TryGetValue(Context.ConnectionId, out UserConnection conn))
+        {
+            await Clients.Group(conn.LobbyRoom)
+                .SendAsync("EndTheGame");
+        }
+    }
 }
