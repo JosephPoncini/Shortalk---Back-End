@@ -55,6 +55,7 @@ namespace Shortalk___Back_End.Services
 
                 newUser.ID = UserToAdd.ID;
                 newUser.Username = UserToAdd.Username;
+                newUser.Friends = "";
                 newUser.Salt = hashPassword.Salt;
                 newUser.Hash = hashPassword.Hash;
 

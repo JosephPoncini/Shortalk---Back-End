@@ -11,7 +11,7 @@ using Shortalk___Back_End.Services.Context;
 namespace Shortalk___Back_End.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240516221155_init")]
+    [Migration("20240526043554_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -231,6 +231,23 @@ namespace Shortalk___Back_End.Migrations
                     b.ToTable("LobbyInfo");
                 });
 
+            modelBuilder.Entity("Shortalk___Back_End.Models.OnlineUsersModel", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("OnlineUsers");
+                });
+
             modelBuilder.Entity("Shortalk___Back_End.Models.UserModel", b =>
                 {
                     b.Property<int>("ID")
@@ -238,6 +255,10 @@ namespace Shortalk___Back_End.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("Friends")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Hash")
                         .IsRequired()

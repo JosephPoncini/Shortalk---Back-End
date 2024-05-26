@@ -85,12 +85,26 @@ namespace Shortalk___Back_End.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "OnlineUsers",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Username = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_OnlineUsers", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "UserInfo",
                 columns: table => new
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Friends = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Salt = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Hash = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
@@ -108,6 +122,9 @@ namespace Shortalk___Back_End.Migrations
 
             migrationBuilder.DropTable(
                 name: "LobbyInfo");
+
+            migrationBuilder.DropTable(
+                name: "OnlineUsers");
 
             migrationBuilder.DropTable(
                 name: "UserInfo");
