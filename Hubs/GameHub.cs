@@ -15,6 +15,29 @@ public class GameHub : Hub
         _data = data;
     }
 
+    public override async Task OnDisconnectedAsync(Exception exception)
+    {
+
+        await base.OnDisconnectedAsync(exception);
+
+        if (_shared.connections.TryGetValue(Context.ConnectionId, out UserConnection conn))
+        {
+            var userId = Context.UserIdentifier;
+            _shared.connections.TryRemove(userId, out _);
+
+            // Check if this was the last user
+            if (!_shared.connections.Any())
+            {
+                // Perform your specific action here
+                _data.DeleteGame(conn.LobbyRoom);
+            }
+        }
+        await base.OnDisconnectedAsync(exception);
+        
+    }
+
+
+
     public async Task JoinSpecificGame(UserConnection conn)
     {
 
@@ -43,20 +66,22 @@ public class GameHub : Hub
         if (_shared.connections.TryGetValue(Context.ConnectionId, out UserConnection conn))
         {
             string color = "black";
-            if(_data.IsGuessOnePoint(conn.LobbyRoom, onePointWord, guess))
+            if (_data.IsGuessOnePoint(conn.LobbyRoom, onePointWord, guess))
             {
                 color = "green";
-            }else if(_data.IsGuessThreePoint(conn.LobbyRoom, threePointWord, guess))
+            }
+            else if (_data.IsGuessThreePoint(conn.LobbyRoom, threePointWord, guess))
             {
                 color = "purple";
-            }else if(_data.IsGuessClose(onePointWord, threePointWord, guess))
+            }
+            else if (_data.IsGuessClose(onePointWord, threePointWord, guess))
             {
                 color = "yellow";
             }
 
             GameModel game = _data.GetGameInfo(conn.LobbyRoom);
             string json = JsonConvert.SerializeObject(game);
-            
+
             await Clients.Group(conn.LobbyRoom)
                 .SendAsync("ReceiveGuess", conn.Username, guess, color, json);
         }
@@ -80,7 +105,7 @@ public class GameHub : Hub
         }
     }
 
-        public async Task GoToNextTurn()
+    public async Task GoToNextTurn()
     {
         if (_shared.connections.TryGetValue(Context.ConnectionId, out UserConnection conn))
         {
@@ -89,7 +114,7 @@ public class GameHub : Hub
         }
     }
 
-        public async Task EndTheGame()
+    public async Task EndTheGame()
     {
         if (_shared.connections.TryGetValue(Context.ConnectionId, out UserConnection conn))
         {

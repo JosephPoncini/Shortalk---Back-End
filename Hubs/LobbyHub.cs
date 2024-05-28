@@ -15,6 +15,8 @@ public class LobbyHub : Hub
         _data = data;
     }
 
+
+
     public override async Task OnDisconnectedAsync(Exception exception)
     {
         // Perform actions when a client disconnects
@@ -26,7 +28,7 @@ public class LobbyHub : Hub
             {
                 LobbyRoomModel lobby = _data.GetLobbyByLobbyName(conn.LobbyRoom);
 
-                if (lobby.TeamMemberA1 == "" 
+                if (lobby.TeamMemberA1 == ""
                     && lobby.TeamMemberA2 == ""
                     && lobby.TeamMemberA3 == ""
                     && lobby.TeamMemberA4 == ""
@@ -63,6 +65,18 @@ public class LobbyHub : Hub
 
 
 
+    }
+
+    public async Task RemovePlayer(string playerName, string lobbyName)
+    {
+        if (_data.RemovePlayerFromLobby(lobbyName, playerName))
+        {
+            LobbyRoomModel lobby = _data.GetLobbyByLobbyName(lobbyName);
+            string json = JsonConvert.SerializeObject(lobby);
+            await Clients.All
+                .SendAsync("RemovePlayer",playerName,json);
+
+        }
     }
 
     public async Task ToggleTeam(UserConnection conn)

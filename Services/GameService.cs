@@ -21,6 +21,22 @@ public class GameService
         return _context.GameInfo.SingleOrDefault(lobby => lobby.LobbyName == lobbyName) != null;
     }
 
+    public bool DeleteGame(string gameToDelete)
+    {
+        GameModel foundGame = GetGameByLobbyName(gameToDelete);
+
+        bool result = false;
+
+        if (foundGame != null)
+        {
+
+            _context.Remove<GameModel>(foundGame);
+            result = _context.SaveChanges() != 0;
+        }
+
+        return result;
+    }
+
     public GameModel GetGameByLobbyName(string lobbyName)
     {
         return _context.GameInfo.SingleOrDefault(game => game.LobbyName == lobbyName);
@@ -395,7 +411,7 @@ public class GameService
             }
         }
 
-        int index = (((game.Turn - 1 )/ 2) % numberOfTeamates);
+        int index = (((game.Turn - 1) / 2) % numberOfTeamates);
 
         game.Speaker = team[index];
 

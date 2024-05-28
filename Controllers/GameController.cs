@@ -102,5 +102,19 @@ namespace Shortalk___Back_End.Controllers
         {
             return _data.ClearWordLists(lobbyName);
         }
+
+        [HttpDelete]
+        [Route("DeleteGame/{lobbyName}")]
+        public bool DeleteGame(string lobbyName)
+        {
+            return _data.DeleteGame(lobbyName);
+        }
+
+        [HttpGet]
+        [Route("DoesGameExist/{lobbyName}")]
+        public bool DoesGameExist(string lobbyName)
+        {
+            return _data.DoesGameExist(lobbyName);
+        }
     }
 }
